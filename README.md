@@ -10,7 +10,9 @@ Features : SMTP, Customtkinter
 In the project directory, please run the Splash_Screen.py
 
 ## Please install the following libraries
-`pip install customtkinter`
-`pip install PIL`
-`pip install pyglet`
-`pip install smtplib`
+``` 
+pip install customtkinter
+pip install PIL
+pip install pyglet
+pip install smtplib
+```
