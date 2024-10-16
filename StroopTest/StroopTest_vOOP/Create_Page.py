@@ -48,15 +48,20 @@ class Create_Page:
     def create_page(self):
         #Create page window configuration  
         self.root.title("Create Page")
+        screen_width = self.root.winfo_screenwidth()
+        screen_height = self.root.winfo_screenheight()
         self.root.configure(fg_color=('#ddddff', '#F6F4EB'))
-        self.root.geometry("{0}x{1}+0+0".format(self.root.winfo_screenwidth(), self.root.winfo_screenheight()))
+        self.root.geometry("{0}x{1}+0+0".format(screen_width, screen_height))
         set_appearance_mode("system") 
         #colors
         self.color_1 = "#461959"
         self.color_2 = "white"
         self.color_3 = "black"
+        # Resize the image relative to the screen size
+        image_width = int(screen_width * 0.3)  # 30% of screen width
+        image_height = int(screen_height * 0.3)  # 40% of screen height
         #images
-        self.img2 = CTkImage(Image.open('image/doodle_login.png'),size=(700,489))
+        self.img2 = CTkImage(Image.open('image/doodle_login.png'),size=(image_width,image_height))
         self.img3 = CTkImage(Image.open('image/Cross.png'), size=(30,30))   
         #Shape
         self.rectangle = CTkFrame(master=self.root,width=600,height=700, corner_radius=100, fg_color=(self.color_1, '#4682A9'))
@@ -86,17 +91,14 @@ class Create_Page:
         pic1 = CTkLabel(self.root,text= "", image=self.img2)
         pic1.place(relx = 0.25, rely = 0.4, anchor ='center')
 
-        label_l = CTkLabel(self.root, text='WELCOME TO STROOP TEST', font=('Cooper Black', 40), text_color=self.color_3)
+        label_l = CTkLabel(self.root, text='WELCOME TO STROOP TEST', font=('Cooper Black', 30), text_color=self.color_3)
         label_l.place(relx = 0.25, rely = 0.1, anchor ='center')
 
         label_i = CTkLabel(self.root, text='Create An Account', font=('Cooper Black', 50, 'bold'), text_color= self.color_2, fg_color=(self.color_1, '#4682A9'))
         label_i.place(relx = 0.7, rely = 0.25, anchor ='center')
 
-        warning_label = CTkLabel(self.root, text='Password must be 8 characters long', font=('Cooper Black', 30, 'bold'), text_color=self.color_3)
+        warning_label = CTkLabel(self.root, text='Password must be 8 characters long \n at least one uppercase and lowercase \n numbers and symbols', font=('Cooper Black', 20, 'bold'), text_color=self.color_3)
         warning_label.place(relx = 0.25, rely = 0.7, anchor ='center')
-
-        warning_label = CTkLabel(self.root, text='Password must contain at least one uppercase and lowercase, numbers and symbols', font=('Cooper Black', 30, 'bold'), wraplength=600, text_color= self.color_3)
-        warning_label.place(relx = 0.25, rely = 0.8, anchor ='center')
 
         username_label = CTkLabel(self.root, text="Username", font=('Cooper Black', 30), text_color=(self.color_2), bg_color=(self.color_1, '#4682A9'))
         username_label.place(relx = 0.64, rely = 0.3, anchor ='center')
